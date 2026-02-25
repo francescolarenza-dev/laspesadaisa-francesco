@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Spesa da Isa</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:linear-gradient(135deg,#008C45,#ffffff,#CD212A);color:#222;}
+section,header{padding:70px 10%;}
+header{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.95);}
+header h1{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,#008C45,#CD212A);color:white;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:bold;text-align:center;}
+nav ul{display:flex;gap:40px;list-style:none;}
+nav a{text-decoration:none;color:#008C45;font-weight:600;text-transform:uppercase;font-size:14px;}
+nav a:hover{color:#CD212A;}
+
+.hero{padding:70px 10%;}
+.slideshow{position:relative;width:100%;height:420px;border-radius:20px;overflow:hidden;}
+.slide{position:absolute;width:100%;height:100%;opacity:0;transition:opacity 1s ease-in-out;}
+.slide.active{opacity:1;}
+.slide img{width:100%;height:100%;object-fit:cover;}
+.slide-text{position:absolute;bottom:30px;left:30px;background:rgba(0,0,0,0.6);color:white;padding:20px;border-radius:10px;max-width:400px;}
+.prev,.next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:white;border:none;padding:12px 16px;cursor:pointer;font-size:18px;border-radius:50%;}
+.prev{left:20px;}
+.next{right:20px;}
+
+h2{margin-bottom:40px;text-transform:uppercase;letter-spacing:2px;color:#008C45;text-align:center;}
+
+#prodotti ul,#servizi ul{display:flex;flex-wrap:wrap;justify-content:center;gap:40px;list-style:none;}
+#prodotti li,#servizi li{width:150px;height:150px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:bold;padding:15px;transition:0.4s;}
+#prodotti li{background:linear-gradient(135deg,#008C45,#ffffff);}
+#servizi li{background:linear-gradient(135deg,#CD212A,#ffffff);}
+#prodotti li:hover,#servizi li:hover{transform:translateY(-10px);}
+
+#chi-siamo{display:flex;justify-content:space-between;align-items:center;gap:50px;}
+#chi-siamo img{width:100%;border-radius:20px;object-fit:cover;}
+#chi-siamo div:first-of-type{width:40%;}
+#chi-siamo div:last-of-type{width:50%;line-height:1.6;}
+
+#contatti{background:rgba(205,33,42,0.1);border-radius:20px;text-align:center;}
+.orari{margin-top:30px;}
+.orari h3{color:#008C45;margin-bottom:15px;}
+.orari ul{list-style:none;padding:0;line-height:1.8;}
+
+footer{text-align:center;padding:30px;background:white;margin-top:40px;}
+footer a{color:#008C45;text-decoration:none;font-weight:bold;}
+
+#privacy,#cookie{padding:50px 10%;background:white;}
+#cookie{background:#f5f5f5;}
+
+@media(max-width:900px){
+#chi-siamo{flex-direction:column;text-align:center;}
+#chi-siamo div{width:100%;}
+nav ul{flex-direction:column;gap:15px;}
+}
+
+#cookie-banner{position:fixed;bottom:0;left:0;width:100%;background:#222;color:white;padding:20px;display:none;justify-content:space-between;align-items:center;z-index:9999;}
+#cookie-banner button{border:none;padding:10px 15px;cursor:pointer;}
+.accept-btn{background:#008C45;color:white;margin-right:10px;}
+.decline-btn{background:#CD212A;color:white;}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>La Spesa<br>da Isa</h1>
+<nav>
+<ul>
+<li><a href="#prodotti">Prodotti</a></li>
+<li><a href="#servizi">Servizi</a></li>
+<li><a href="#chi-siamo">Chi siamo</a></li>
+<li><a href="#contatti">Contatti</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="hero">
+<div class="slideshow">
+
+<div class="slide active">
+<img src="https://images.tgtg.ninja/standard_images/GENERAL/other3.jpg" alt="Negozio">
+<div class="slide-text">
+<h3>Prodotti Freschi Ogni Giorno</h3>
+<p>Selezioniamo frutta, verdura e alimentari di qualità per offrirti freschezza e convenienza quotidiana.</p>
+</div>
+</div>
+
+<div class="slide">
+<img src="imgtest.png" alt="Interno negozio">
+<div class="slide-text">
+<h3>Interno negozio</h3>
+<p>Il nostro punto vendita offre un ambiente accogliente, ordinato e ricco di prodotti freschi e di qualità.</p>
+</div>
+</div>
+
+<div class="slide">
+<img src="https://lh3.googleusercontent.com/p/AF1QipOmsbbMqBE0m3DYorTgVh7Jtm32wc-gZj9tdaCf=s680-w680-h510-rw" alt="Negozio">
+<div class="slide-text">
+<h3>Il Nostro Punto Vendita</h3>
+<p>Un negozio accogliente dove tradizione e qualità si incontrano per servirti al meglio.</p>
+</div>
+</div>
+
+<button class="prev">&#10094;</button>
+<button class="next">&#10095;</button>
+
+</div>
+</section>
+
+<section id="prodotti">
+<h2>Prodotti</h2>
+<ul>
+<li>Alimentari</li>
+<li>Gastronomia</li>
+<li>Frutta & Verdura</li>
+<li>Casa</li>
+<li>Cartoleria</li>
+</ul>
+</section>
+
+<section id="servizi">
+<h2>Servizi</h2>
+<ul>
+<li>Spesa a domicilio</li>
+<li>Offerte</li>
+<li>Novità</li>
+<li>Ho.Re.Ca</li>
+<li>Tessera fedeltà</li>
+<li>Mooney</li>
+</ul>
+</section>
+
+<section id="chi-siamo">
+<div>
+<img src="https://lh3.googleusercontent.com/p/AF1QipOmsbbMqBE0m3DYorTgVh7Jtm32wc-gZj9tdaCf=s680-w680-h510-rw" alt="Negozio">
+</div>
+<div>
+<h2>Chi siamo</h2>
+<p>Siamo un negozio di alimentari conveniente di Viadana Bresciana. Offriamo prodotti freschi, qualità e cortesia ogni giorno.</p>
+</div>
+</section>
+
+<section id="contatti">
+<h2>Contatti</h2>
+<p>Email: laspesadaisa@gmail.com</p>
+<p>Telefono: 0123 456789</p>
+<p>Indirizzo: Via della Tesa 70, Viadana Bresciana</p>
+
+<div class="orari">
+<h3>Orari di apertura</h3>
+<ul>
+<li><strong>Lunedì:</strong> 07:30–12:30</li>
+<li><strong>Martedì:</strong> 07:30–12:30, 15:30–19:30</li>
+<li><strong>Mercoledì:</strong> 07:30–12:30, 15:30–19:30</li>
+<li><strong>Giovedì:</strong> 07:30–12:30, 15:30–19:30</li>
+<li><strong>Venerdì:</strong> 07:30–12:30, 15:30–19:30</li>
+<li><strong>Sabato:</strong> 07:30–12:30, 15:30–19:30</li>
+<li><strong>Domenica:</strong> Chiuso</li>
+</ul>
+</div>
+
+</section>
+
+<footer>
+<a href="#privacy">Privacy Policy</a> |
+<a href="#cookie">Cookie Policy</a>
+</footer>
+
+<section id="privacy">
+<h2>Privacy Policy</h2>
+<p>I dati personali forniti tramite questo sito saranno trattati nel rispetto del Regolamento UE 2016/679 (GDPR).</p>
+</section>
+
+<section id="cookie">
+<h2>Cookie Policy</h2>
+<p>Questo sito utilizza esclusivamente cookie tecnici necessari al corretto funzionamento.</p>
+</section>
+
+<div id="cookie-banner">
+<span>Questo sito utilizza cookie. <a href="#cookie" style="color:#00ffcc;">Leggi la Cookie Policy</a></span>
+<div>
+<button class="accept-btn" onclick="acceptCookies()">Accetta</button>
+<button class="decline-btn" onclick="declineCookies()">Rifiuta</button>
+</div>
+</div>
+
+<script>
+const slides=document.querySelectorAll(".slide");
+const next=document.querySelector(".next");
+const prev=document.querySelector(".prev");
+let index=0;
+
+function showSlide(i){
+slides.forEach(slide=>slide.classList.remove("active"));
+slides[i].classList.add("active");
+}
+
+next.addEventListener("click",()=>{index=(index+1)%slides.length;showSlide(index);});
+prev.addEventListener("click",()=>{index=(index-1+slides.length)%slides.length;showSlide(index);});
+setInterval(()=>{index=(index+1)%slides.length;showSlide(index);},5000);
+
+const banner=document.getElementById("cookie-banner");
+if(!localStorage.getItem("cookieChoice")){banner.style.display="flex";}
+function acceptCookies(){localStorage.setItem("cookieChoice","accepted");banner.style.display="none";}
+function declineCookies(){localStorage.setItem("cookieChoice","declined");banner.style.display="none";}
+</script>
+
+</body>
+</html>
+
+
