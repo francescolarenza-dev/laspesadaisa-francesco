@@ -185,66 +185,49 @@ nav ul{flex-direction:column;gap:15px;}
 </ul>
 </section>
 
-<section id="servizi">
+<section id="servizi" class="fade-in">
 <h2>Servizi</h2>
 <ul>
-<li>Spesa a domicilio</li>
-<li>Offerte</li>
-<li>Novità</li>
-<li>Ho.Re.Ca</li>
-<li>Tessera fedeltà</li>
-<li>Mooney</li>
+<li class="servizio spesa"><span>Spesa a domicilio</span></li>
+<li class="servizio offerte"><span>Offerte</span></li>
+<li class="servizio novita"><span>Novità</span></li>
+<li class="servizio horeca"><span>Ho.Re.Ca</span></li>
+<li class="servizio tessera"><span>Tessera fedeltà</span></li>
+<li class="servizio mooney"><span>Mooney</span></li>
 </ul>
 </section>
 
-<section id="chi-siamo">
-<div>
-<img src="https://lh3.googleusercontent.com/p/AF1QipOmsbbMqBE0m3DYorTgVh7Jtm32wc-gZj9tdaCf=s680-w680-h510-rw" alt="Negozio">
-</div>
-<div>
-<h2>Chi siamo</h2>
-<p>Siamo un negozio di alimentari conveniente di Viadana Bresciana. Offriamo prodotti freschi, qualità e cortesia ogni giorno.</p>
-</div>
-</section>
-
-<section id="contatti">
+<section id="contatti" class="fade-in">
 <h2>Contatti</h2>
 <p>Email: laspesadaisa@gmail.com</p>
 <p>Telefono: 0123 456789</p>
 <p>Indirizzo: Via della Tesa 70, Viadana Bresciana</p>
 
 <div class="orari">
-<h3>Orari di apertura</h3>
 <ul>
 <li><strong>Lunedì:</strong> 07:30–12:30</li>
-<li><strong>Martedì:</strong> 07:30–12:30, 15:30–19:30</li>
-<li><strong>Mercoledì:</strong> 07:30–12:30, 15:30–19:30</li>
-<li><strong>Giovedì:</strong> 07:30–12:30, 15:30–19:30</li>
-<li><strong>Venerdì:</strong> 07:30–12:30, 15:30–19:30</li>
-<li><strong>Sabato:</strong> 07:30–12:30, 15:30–19:30</li>
+<li><strong>Martedì-Sabato:</strong> 07:30–12:30, 15:30–19:30</li>
 <li><strong>Domenica:</strong> Chiuso</li>
 </ul>
+
+<div class="policy-links">
+<a href="#privacy">Privacy Policy</a> |
+<a href="#cookie">Cookie Policy</a>
+</div>
 </div>
 
+<div class="mappa">
+<iframe src="https://www.google.com/maps?q=Via+della+Tesa+70,+Viadana+Bresciana&output=embed"
+width="100%" height="350" style="border:0;" loading="lazy"></iframe>
+</div>
 </section>
 
 <footer>
-<a href="#privacy">Privacy Policy</a> |
-<a href="#cookie">Cookie Policy</a>
+© 2026 La Spesa da Isa - Tutti i diritti riservati
 </footer>
 
-<section id="privacy">
-<h2>Privacy Policy</h2>
-<p>I dati personali forniti tramite questo sito saranno trattati nel rispetto del Regolamento UE 2016/679 (GDPR).</p>
-</section>
-
-<section id="cookie">
-<h2>Cookie Policy</h2>
-<p>Questo sito utilizza esclusivamente cookie tecnici necessari al corretto funzionamento.</p>
-</section>
-
 <div id="cookie-banner">
-<span>Questo sito utilizza cookie. <a href="#cookie" style="color:#00ffcc;">Leggi la Cookie Policy</a></span>
+<span>Questo sito utilizza cookie tecnici.</span>
 <div>
 <button class="accept-btn" onclick="acceptCookies()">Accetta</button>
 <button class="decline-btn" onclick="declineCookies()">Rifiuta</button>
@@ -274,6 +257,7 @@ function declineCookies(){localStorage.setItem("cookieChoice","declined");banner
 
 </body>
 </html>
+
 
 
 
