@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="La Spesa da Isa - Negozio alimentari a Viadana Bresciana. Prodotti freschi, servizi e tradizione.">
+<meta name="keywords" content="alimentari, frutta, verdura, servizi, viadana">
+<meta name="author" content="La Spesa da Isa">
+
+<title>La Spesa da Isa</title>
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+background:linear-gradient(135deg,#008C45,#ffffff,#CD212A);
+color:#222;
+line-height:1.6;
+}
+
+/* HEADER */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+background:white;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+.logo{
+width:95px;
+height:95px;
+border-radius:50%;
+background:linear-gradient(135deg,#008C45,#CD212A);
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+font-size:14px;
+font-weight:bold;
+transition:0.4s;
+}
+
+.logo:hover{
+transform:rotate(5deg) scale(1.05);
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+color:#008C45;
+font-weight:600;
+text-transform:uppercase;
+font-size:14px;
+transition:0.3s;
+}
+
+nav a:hover{color:#CD212A;}
+
+section{
+padding:80px 10%;
+}
+
+h2{
+text-align:center;
+margin-bottom:40px;
+color:#008C45;
+letter-spacing:2px;
+transition:0.3s;
+}
+
+h2:hover{letter-spacing:4px;}
+
+/* FADE */
+.fade-in{
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
+}
+
+.fade-in.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+/* CHI SIAMO */
+#chisiamo{
+background:white;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.chi-container{
+display:flex;
+gap:40px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.chi-text{
+flex:1;
+}
+
+.chi-text p{
+margin-bottom:15px;
+}
+
+.chi-img{
+flex:1;
+}
+
+.chi-img img{
+width:100%;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* PRODOTTI & SERVIZI (cerchi) */
+#prodotti ul,#servizi ul{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:40px;
+list-style:none;
+}
+
+.prodotto,.servizio{
+width:160px;
+height:160px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+font-weight:bold;
+color:white;
+position:relative;
+overflow:hidden;
+cursor:pointer;
+transition:0.4s;
+background-size:cover;
+background-position:center;
+}
+
+.prodotto::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(135deg, rgba(0,140,69,0.75), rgba(255,255,255,0.2));
+z-index:1;
+}
+
+.servizio::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(135deg, rgba(205,33,42,0.75), rgba(255,255,255,0.2));
+z-index:1;
+}
+
+.prodotto span,.servizio span{
+position:relative;
+z-index:2;
+padding:10px;
+}
+
+.prodotto:hover,.servizio:hover{
+transform:translateY(-10px) scale(1.05);
+}
+
+/* IMMAGINI */
+.alimentari{background-image:url("alimentari.jpg");}
+.gastronomia{background-image:url("gastronomia.jpg");}
+.frutta{background-image:url("frutta.jpg");}
+.casa{background-image:url("casa.jpg");}
+.cartoleria{background-image:url("cartoleria.jpg");}
+
+.spesa{background-image:url("spesa.jpg");}
+.offerte{background-image:url("offerte.jpg");}
+.novita{background-image:url("novita.jpg");}
+.horeca{background-image:url("horeca.jpg");}
+.tessera{background-image:url("tessera.jpg");}
+.mooney{background-image:url("mooney.jpg");}
+
+/* CONTATTI */
+#contatti{
+background:rgba(205,33,42,0.1);
+border-radius:20px;
+text-align:center;
+}
+
+.orari ul{
+list-style:none;
+line-height:1.8;
+margin-top:20px;
+}
+
+.policy-links{
+margin-top:15px;
+font-size:12px;
+}
+
+.policy-links a{
+color:#008C45;
+text-decoration:none;
+}
+
+.policy-links a:hover{color:#CD212A;}
+
+.mappa{
+margin-top:40px;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+footer{
+background:white;
+text-align:center;
+padding:25px;
+margin-top:40px;
+font-size:14px;
+}
+
+/* COOKIE */
+#cookie-banner{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#222;
+color:white;
+padding:20px;
+display:none;
+justify-content:space-between;
+align-items:center;
+z-index:9999;
+}
+
+#cookie-banner button{
+border:none;
+padding:10px 15px;
+cursor:pointer;
+}
+
+.accept-btn{background:#008C45;color:white;margin-right:10px;}
+.decline-btn{background:#CD212A;color:white;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+nav ul{flex-direction:column;}
+.prodotto,.servizio{width:130px;height:130px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">La Spesa<br>da Isa</div>
+<nav>
+<ul>
+<li><a href="#chisiamo">Chi Siamo</a></li>
+<li><a href="#prodotti">Prodotti</a></li>
+<li><a href="#servizi">Servizi</a></li>
+<li><a href="#contatti">Contatti</a></li>
+</ul>
+</nav>
+</header>
+
+<section id="chisiamo" class="fade-in">
+<h2>Chi Siamo</h2>
+<div class="chi-container">
+<div class="chi-text">
+<p>La Spesa da Isa è un negozio di fiducia a Viadana Bresciana, nato con l'obiettivo di offrire qualità, cortesia e prodotti sempre freschi.</p>
+<p>Ogni giorno selezioniamo con cura alimentari, frutta e prodotti per la casa per garantire ai nostri clienti il meglio.</p>
+<p>La nostra forza è il rapporto umano e la tradizione del commercio di quartiere.</p>
+</div>
+<div class="chi-img">
+<img src="https://lh3.googleusercontent.com/p/AF1QipOmsbbMqBE0m3DYorTgVh7Jtm32wc-gZj9tdaCf=s680-w680-h510-rw" alt="Il nostro negozio">
+</div>
+</div>
+</section>
+
+<section id="prodotti" class="fade-in">
+<h2>Prodotti</h2>
+<ul>
+<li class="prodotto alimentari"><span>Alimentari</span></li>
+<li class="prodotto gastronomia"><span>Gastronomia</span></li>
+<li class="prodotto frutta"><span>Frutta & Verdura</span></li>
+<li class="prodotto casa"><span>Casa</span></li>
+<li class="prodotto cartoleria"><span>Cartoleria</span></li>
+</ul>
+</section>
+
+<section id="servizi" class="fade-in">
+<h2>Servizi</h2>
+<ul>
+<li class="servizio spesa"><span>Spesa a domicilio</span></li>
+<li class="servizio offerte"><span>Offerte</span></li>
+<li class="servizio novita"><span>Novità</span></li>
+<li class="servizio horeca"><span>Ho.Re.Ca</span></li>
+<li class="servizio tessera"><span>Tessera fedeltà</span></li>
+<li class="servizio mooney"><span>Mooney</span></li>
+</ul>
+</section>
+
+<section id="contatti" class="fade-in">
+<h2>Contatti</h2>
+<p>Email: laspesadaisa@gmail.com</p>
+<p>Telefono: 0123 456789</p>
+<p>Indirizzo: Via della Tesa 70, Viadana Bresciana</p>
+
+<div class="orari">
+<ul>
+<li><strong>Lunedì:</strong> 07:30–12:30</li>
+<li><strong>Martedì-Sabato:</strong> 07:30–12:30, 15:30–19:30</li>
+<li><strong>Domenica:</strong> Chiuso</li>
+</ul>
+
+<div class="policy-links">
+<a href="#privacy">Privacy Policy</a> |
+<a href="#cookie">Cookie Policy</a>
+</div>
+</div>
+
+<div class="mappa">
+<iframe src="https://www.google.com/maps?q=Via+della+Tesa+70,+Viadana+Bresciana&output=embed"
+width="100%" height="350" style="border:0;" loading="lazy"></iframe>
+</div>
+</section>
+
+<footer>
+© 2026 La Spesa da Isa - Tutti i diritti riservati
+</footer>
+
+<div id="cookie-banner">
+<span>Questo sito utilizza cookie tecnici.</span>
+<div>
+<button class="accept-btn" onclick="acceptCookies()">Accetta</button>
+<button class="decline-btn" onclick="declineCookies()">Rifiuta</button>
+</div>
+</div>
+
+<script>
+const faders=document.querySelectorAll('.fade-in');
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){entry.target.classList.add("visible");}
+});
+},{threshold:0.2});
+faders.forEach(el=>observer.observe(el));
+
+const banner=document.getElementById("cookie-banner");
+if(!localStorage.getItem("cookieChoice")){
+banner.style.display="flex";
+}
+function acceptCookies(){
+localStorage.setItem("cookieChoice","accepted");
+banner.style.display="none";
+}
+function declineCookies(){
+localStorage.setItem("cookieChoice","declined");
+banner.style.display="none";
+}
+</script>
+
+</body>
+</html>
