@@ -9,12 +9,117 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
 body{background:linear-gradient(135deg,#008C45,#ffffff,#CD212A);color:#222;}
 section,header{padding:70px 10%;}
-header{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.95);}
-header h1{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,#008C45,#CD212A);color:white;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:bold;text-align:center;}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,0.95);
+}
+
 nav ul{display:flex;gap:40px;list-style:none;}
 nav a{text-decoration:none;color:#008C45;font-weight:600;text-transform:uppercase;font-size:14px;}
 nav a:hover{color:#CD212A;}
 
+.logo img{height:80px;}
+@media (max-width:768px){
+.logo img{height:60px;}
+nav ul{flex-direction:column;gap:15px;}
+}
+
+/* HERO */
+.hero{padding:70px 10%;}
+.slideshow{position:relative;width:100%;height:420px;border-radius:20px;overflow:hidden;}
+.slide{position:absolute;width:100%;height:100%;opacity:0;transition:opacity 1s ease-in-out;}
+.slide.active{opacity:1;}
+.slide img{width:100%;height:100%;object-fit:cover;}
+.slide-text{
+position:absolute;
+bottom:30px;
+left:30px;
+background:rgba(0,0,0,0.6);
+color:white;
+padding:20px;
+border-radius:10px;
+max-width:400px;
+}
+.prev,.next{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,0.5);
+color:white;
+border:none;
+padding:12px 16px;
+cursor:pointer;
+font-size:18px;
+border-radius:50%;
+}
+.prev{left:20px;}
+.next{right:20px;}
+
+h2{
+margin-bottom:40px;
+text-transform:uppercase;
+letter-spacing:2px;
+color:#008C45;
+text-align:center;
+}
+
+/* LISTE */
+#prodotti ul,
+#servizi ul{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:40px;
+list-style:none;
+}
+
+/* CERCHI */
+#prodotti li,
+#servizi li{
+width:170px;
+height:170px;
+border-radius:50%;
+overflow:hidden;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+background:white;
+box-shadow:0 8px 20px rgba(0,0,0,0.12);
+transition:0.4s;
+}
+
+/* IMMAGINI */
+#prodotti li img,
+#servizi li img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* TESTO SOPRA IMMAGINE */
+#prodotti li span,
+#servizi li span{
+position:absolute;
+bottom:18px;
+background:rgba(0,0,0,0.65);
+color:white;
+padding:6px 14px;
+border-radius:20px;
+font-size:13px;
+font-weight:bold;
+}
+
+/* HOVER */
+#prodotti li:hover,
+#servizi li:hover{
+transform:translateY(-10px) scale(1.05);
+}
+
+/* CONTATTI */
 #contatti{
 background:rgba(205,33,42,0.1);
 border-radius:20px;
@@ -26,18 +131,6 @@ list-style:none;
 line-height:1.8;
 margin-top:20px;
 }
-
-.policy-links{
-margin-top:15px;
-font-size:12px;
-}
-
-.policy-links a{
-color:#008C45;
-text-decoration:none;
-}
-
-.policy-links a:hover{color:#CD212A;}
 
 .mappa{
 margin-top:40px;
@@ -70,124 +163,22 @@ align-items:center;
 z-index:9999;
 }
 
-#cookie-banner button{
-border:none;
-padding:10px 15px;
-cursor:pointer;
-}
+.accept-btn{background:#008C45;color:white;margin-right:10px;border:none;padding:10px 15px;cursor:pointer;}
+.decline-btn{background:#CD212A;color:white;border:none;padding:10px 15px;cursor:pointer;}
 
-.accept-btn{background:#008C45;color:white;margin-right:10px;}
-.decline-btn{background:#CD212A;color:white;}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-nav ul{flex-direction:column;}
-.prodotto,.servizio{width:130px;height:130px;}
-}
-
-  
-.hero{padding:70px 10%;}
-.slideshow{position:relative;width:100%;height:420px;border-radius:20px;overflow:hidden;}
-.slide{position:absolute;width:100%;height:100%;opacity:0;transition:opacity 1s ease-in-out;}
-.slide.active{opacity:1;}
-.slide img{width:100%;height:100%;object-fit:cover;}
-.slide-text{position:absolute;bottom:30px;left:30px;background:rgba(0,0,0,0.6);color:white;padding:20px;border-radius:10px;max-width:400px;}
-.prev,.next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:white;border:none;padding:12px 16px;cursor:pointer;font-size:18px;border-radius:50%;}
-.prev{left:20px;}
-.next{right:20px;}
-
-h2{margin-bottom:40px;text-transform:uppercase;letter-spacing:2px;color:#008C45;text-align:center;}
-
-#prodotti ul,#servizi ul{display:flex;flex-wrap:wrap;justify-content:center;gap:40px;list-style:none;}
-#prodotti li,#servizi li{width:150px;height:150px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:bold;padding:15px;transition:0.4s;}
-#prodotti li{background:linear-gradient(135deg,#008C45,#ffffff);}
-#servizi li{background:linear-gradient(135deg,#CD212A,#ffffff);}
-#prodotti li:hover,#servizi li:hover{transform:translateY(-10px);}
-
-#chi-siamo{display:flex;justify-content:space-between;align-items:center;gap:50px;}
-#chi-siamo img{width:100%;border-radius:20px;object-fit:cover;}
-#chi-siamo div:first-of-type{width:40%;}
-#chi-siamo div:last-of-type{width:50%;line-height:1.6;}
-
-#contatti{background:rgba(205,33,42,0.1);border-radius:20px;text-align:center;}
-.orari{margin-top:30px;}
-.orari h3{color:#008C45;margin-bottom:15px;}
-.orari ul{list-style:none;padding:0;line-height:1.8;}
-
-footer{text-align:center;padding:30px;background:white;margin-top:40px;}
-footer a{color:#008C45;text-decoration:none;font-weight:bold;}
-
-#privacy,#cookie{padding:50px 10%;background:white;}
-#cookie{background:#f5f5f5;}
-
-@media(max-width:900px){
-#chi-siamo{flex-direction:column;text-align:center;}
-#chi-siamo div{width:100%;}
-nav ul{flex-direction:column;gap:15px;}
-}
-
-#cookie-banner{position:fixed;bottom:0;left:0;width:100%;background:#222;color:white;padding:20px;display:none;justify-content:space-between;align-items:center;z-index:9999;}
-#cookie-banner button{border:none;padding:10px 15px;cursor:pointer;}
-.accept-btn{background:#008C45;color:white;margin-right:10px;}
-.decline-btn{background:#CD212A;color:white;}
-
-  .logo img {
-  height: 80px;
-}
-
-@media (max-width: 768px) {
-  .logo img {
-    height: 60px;
-  }
-}
-
-#prodotti li{
-  width:150px;
-  height:150px;
-  border-radius:50%;
-  overflow:hidden;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:white;   /* sfondo neutro */
-  transition:0.4s;
-}
-
-#prodotti li img{
-  max-width:80%;
-  max-height:80%;
-  object-fit:contain;
-}
-
-#prodotti li span{
-  position:absolute;
-  bottom:15px;
-  background:rgba(0,0,0,0.6);
-  color:white;
-  padding:4px 10px;
-  border-radius:20px;
-  font-size:13px;
-}
-
-#prodotti li:hover{
-  transform:translateY(-10px);
-}
-  
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">
+<div class="logo">
 <img src="136112763_104227068297134_3438713755018764637_n.jpg" alt="logo">
-  </div>
+</div>
 <nav>
 <ul>
 <li><a href="#prodotti">Prodotti</a></li>
 <li><a href="#servizi">Servizi</a></li>
-<li><a href="#chi-siamo">Chi siamo</a></li>
 <li><a href="#contatti">Contatti</a></li>
 </ul>
 </nav>
@@ -197,26 +188,10 @@ nav ul{flex-direction:column;gap:15px;}
 <div class="slideshow">
 
 <div class="slide active">
-<img src="https://images.tgtg.ninja/standard_images/GENERAL/other3.jpg" alt="Negozio">
+<img src="https://images.tgtg.ninja/standard_images/GENERAL/other3.jpg">
 <div class="slide-text">
 <h3>Prodotti Freschi Ogni Giorno</h3>
-<p>Selezioniamo frutta, verdura e alimentari di qualità per offrirti freschezza e convenienza quotidiana.</p>
-</div>
-</div>
-
-<div class="slide">
-<img src="imgtest.png" alt="Interno negozio">
-<div class="slide-text">
-<h3>Interno negozio</h3>
-<p>Il nostro punto vendita offre un ambiente accogliente, ordinato e ricco di prodotti freschi e di qualità.</p>
-</div>
-</div>
-
-<div class="slide">
-<img src="https://lh3.googleusercontent.com/p/AF1QipOmsbbMqBE0m3DYorTgVh7Jtm32wc-gZj9tdaCf=s680-w680-h510-rw" alt="Negozio">
-<div class="slide-text">
-<h3>Il Nostro Punto Vendita</h3>
-<p>Un negozio accogliente dove tradizione e qualità si incontrano per servirti al meglio.</p>
+<p>Selezioniamo frutta, verdura e alimentari di qualità ogni giorno.</p>
 </div>
 </div>
 
@@ -229,46 +204,27 @@ nav ul{flex-direction:column;gap:15px;}
 <section id="prodotti">
 <h2>Prodotti</h2>
 <ul>
-<li>
-  <img src="Screenshot 2026-02-18 111850.png" alt="Alimentari">
-  <span>Alimentari</span>
-</li>
-
-<li>
-  <img src="20260224_083636.jpg" alt="Gastronomia">
-  <span>Gastronomia</span>
-</li>
-
-<li>
-  <img src="Screenshot 2026-02-18 111958.png" alt="Frutta e Verdura">
-  <span>Frutta & Verdura</span>
-</li>
-
-<li>
-  <img src="Screenshot 2026-02-18 112144.png" alt="Casa">
-  <span>Casa</span>
-</li>
-
-<li>
-  <img src="Screenshot 2026-02-18 112223.png" alt="Cartoleria">
-  <span>Cartoleria</span>
-</li>
+<li><img src="Screenshot 2026-02-18 111850.png"><span>Alimentari</span></li>
+<li><img src="20260224_083636.jpg"><span>Gastronomia</span></li>
+<li><img src="Screenshot 2026-02-18 111958.png"><span>Frutta & Verdura</span></li>
+<li><img src="Screenshot 2026-02-18 112144.png"><span>Casa</span></li>
+<li><img src="Screenshot 2026-02-18 112223.png"><span>Cartoleria</span></li>
 </ul>
 </section>
 
-<section id="servizi" class="fade-in">
+<section id="servizi">
 <h2>Servizi</h2>
 <ul>
-<li class="servizio spesa"><span>Spesa a domicilio</span></li>
-<li class="servizio offerte"><span>Offerte</span></li>
-<li class="servizio novita"><span>Novità</span></li>
-<li class="servizio horeca"><span>Ho.Re.Ca</span></li>
-<li class="servizio tessera"><span>Tessera fedeltà</span></li>
-<li class="servizio mooney"><span>Mooney</span></li>
+<li><img src="spesa.jpg"><span>Spesa a domicilio</span></li>
+<li><img src="offerte.jpg"><span>Offerte</span></li>
+<li><img src="novita.jpg"><span>Novità</span></li>
+<li><img src="horeca.jpg"><span>Ho.Re.Ca</span></li>
+<li><img src="tessera.jpg"><span>Tessera fedeltà</span></li>
+<li><img src="mooney.jpg"><span>Mooney</span></li>
 </ul>
 </section>
 
-<section id="contatti" class="fade-in">
+<section id="contatti">
 <h2>Contatti</h2>
 <p>Email: laspesadaisa@gmail.com</p>
 <p>Telefono: 0123 456789</p>
@@ -280,11 +236,6 @@ nav ul{flex-direction:column;gap:15px;}
 <li><strong>Martedì-Sabato:</strong> 07:30–12:30, 15:30–19:30</li>
 <li><strong>Domenica:</strong> Chiuso</li>
 </ul>
-
-<div class="policy-links">
-<a href="#privacy">Privacy Policy</a> |
-<a href="#cookie">Cookie Policy</a>
-</div>
 </div>
 
 <div class="mappa">
@@ -328,13 +279,3 @@ function declineCookies(){localStorage.setItem("cookieChoice","declined");banner
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
