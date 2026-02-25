@@ -69,6 +69,38 @@ nav ul{flex-direction:column;gap:15px;}
     height: 60px;
   }
 }
+
+  #prodotti li{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  overflow:hidden;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-weight:bold;
+  transition:0.4s;
+}
+
+#prodotti li img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+#prodotti li span{
+  position:absolute;
+  background:rgba(0,0,0,0.5);
+  color:white;
+  padding:5px 10px;
+  border-radius:10px;
+}
+
+#prodotti li:hover{
+  transform:translateY(-10px);
+}
   
 </style>
 </head>
@@ -125,11 +157,30 @@ nav ul{flex-direction:column;gap:15px;}
 <section id="prodotti">
 <h2>Prodotti</h2>
 <ul>
-<li>Alimentari</li>
-<li>Gastronomia</li>
-<li>Frutta & Verdura</li>
-<li>Casa</li>
-<li>Cartoleria</li>
+<li>
+  <img src="Screenshot 2026-02-18 111850.png" alt="Alimentari">
+  <span>Alimentari</span>
+</li>
+
+<li>
+  <img src="gastronomia.jpg" alt="Gastronomia">
+  <span>Gastronomia</span>
+</li>
+
+<li>
+  <img src="Screenshot 2026-02-18 111958.png" alt="Frutta e Verdura">
+  <span>Frutta & Verdura</span>
+</li>
+
+<li>
+  <img src="Screenshot 2026-02-18 112144.png" alt="Casa">
+  <span>Casa</span>
+</li>
+
+<li>
+  <img src="Screenshot 2026-02-18 112223.png" alt="Cartoleria">
+  <span>Cartoleria</span>
+</li>
 </ul>
 </section>
 
@@ -222,6 +273,7 @@ function declineCookies(){localStorage.setItem("cookieChoice","declined");banner
 
 </body>
 </html>
+
 
 
 
