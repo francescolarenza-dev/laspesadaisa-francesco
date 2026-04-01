@@ -4,17 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>La Spesa da Isa | Alimentari a Viadana Bresciana</title>
+<title>Spesa a domicilio Viadana | La Spesa da Isa</title>
 
-<meta name="description" content="Spesa online, consegna a domicilio e prodotti freschi ogni giorno.">
+<meta name="description" content="Spesa a domicilio a Viadana. Ordina alimentari freschi su WhatsApp con consegna veloce.">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif;}
-
 body{background:#f4f6f5;color:#222;}
-
-section{padding:60px 10%;}
-
+section{padding:80px 10%;}
 h2{text-align:center;margin-bottom:30px;color:#1f7a63;}
 
 /* HEADER */
@@ -27,6 +24,21 @@ padding:15px 10%;
 position:sticky;
 top:0;
 box-shadow:0 2px 10px rgba(0,0,0,0.1);
+z-index:1000;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:bold;
+font-size:18px;
+color:#1f7a63;
+}
+
+.logo img{
+height:50px;
+object-fit:contain;
 }
 
 nav ul{
@@ -52,6 +64,8 @@ padding:80px 10%;
 border-radius:0 0 30px 30px;
 }
 
+.hero button{margin-top:15px;}
+
 /* GRID */
 .grid{
 display:flex;
@@ -68,19 +82,36 @@ border-radius:15px;
 width:170px;
 text-align:center;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.3s;
 }
 
-.card h4{margin-bottom:5px;}
+.card:hover{transform:translateY(-5px);}
+
 .card p{color:#1f7a63;font-weight:bold;}
 
+/* BUTTON */
 button{
 margin-top:10px;
-padding:8px;
+padding:10px;
 border:none;
 background:#1f7a63;
 color:white;
 border-radius:8px;
 cursor:pointer;
+font-weight:bold;
+}
+
+button:hover{background:#145c4a;}
+
+/* SEARCH */
+#search{
+width:100%;
+max-width:400px;
+display:block;
+margin:0 auto 30px;
+padding:10px;
+border-radius:8px;
+border:1px solid #ccc;
 }
 
 /* LIST */
@@ -100,6 +131,12 @@ margin:auto;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
+.ordine li{
+display:flex;
+justify-content:space-between;
+margin-bottom:10px;
+}
+
 /* MAPPA */
 .mappa{
 margin-top:30px;
@@ -117,11 +154,13 @@ color:white;
 padding:15px;
 border-radius:50%;
 text-decoration:none;
+font-size:20px;
 }
 
 /* MOBILE */
 @media(max-width:768px){
 .menu-toggle{display:block;}
+
 nav ul{
 display:none;
 flex-direction:column;
@@ -132,8 +171,12 @@ background:white;
 padding:20px;
 border-radius:10px;
 }
+
 nav ul.active{display:flex;}
+
 .card{width:140px;}
+
+.logo img{height:40px;}
 }
 </style>
 </head>
@@ -141,7 +184,10 @@ nav ul.active{display:flex;}
 <body>
 
 <header>
-<h3>La Spesa da Isa</h3>
+<div class="logo">
+<img src="https://scontent-fco2-1.xx.fbcdn.net/v/t1.6435-9/136112763_104227068297134_3438713755018764637_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=VjNkcR1OIjoQ7kNvwGhIlp7&_nc_oc=AdqUc46mHOx_8rPEEm_ts8FwdMsKxGJuLZiavx_A1AzLz65UwLbveZqgthdbevLJkkE&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=iFnW7B2qKK3XcTtdwn9KnA&_nc_ss=7a389&oh=00_Af2RxYSKuSddffjuIgT5keMz24kgWSscEz80lkok6mEYbA&oe=69F469B1" alt="Logo">
+<span>La Spesa da Isa</span>
+</div>
 
 <div class="menu-toggle">☰</div>
 
@@ -156,13 +202,18 @@ nav ul.active{display:flex;}
 </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
-<h1>Benvenuto da La Spesa da Isa</h1>
-<p>Prodotti freschi e spesa a domicilio</p>
+<h1>Spesa a domicilio a Viadana</h1>
+<p>Ordina in 1 minuto su WhatsApp</p>
+<p>🚚 Consegna locale</p>
+<p>💶 Minimo ordine €10</p>
+<p>📦 Consegna €2</p>
+
+<a href="#shop">
+<button>Fai la spesa ora</button>
+</a>
 </section>
 
-<!-- PRODOTTI -->
 <section id="prodotti">
 <h2>Prodotti</h2>
 <div class="lista">
@@ -177,7 +228,6 @@ nav ul.active{display:flex;}
 </div>
 </section>
 
-<!-- SERVIZI -->
 <section id="servizi">
 <h2>Servizi</h2>
 <div class="lista">
@@ -190,40 +240,14 @@ nav ul.active{display:flex;}
 </div>
 </section>
 
-<!-- SHOP -->
 <section id="shop">
 <h2>Shop</h2>
 
-<div class="grid">
+<input type="text" id="search" placeholder="Cerca prodotto..." onkeyup="searchProduct()">
 
-<div class="card"><h4>Mele</h4><p>€2/kg</p><button onclick="addToCart('Mele',2)">Aggiungi</button></div>
-<div class="card"><h4>Banane</h4><p>€1.8/kg</p><button onclick="addToCart('Banane',1.8)">Aggiungi</button></div>
-<div class="card"><h4>Arance</h4><p>€2.2/kg</p><button onclick="addToCart('Arance',2.2)">Aggiungi</button></div>
-<div class="card"><h4>Insalata</h4><p>€1.5</p><button onclick="addToCart('Insalata',1.5)">Aggiungi</button></div>
-
-<div class="card"><h4>Pane</h4><p>€1.5</p><button onclick="addToCart('Pane',1.5)">Aggiungi</button></div>
-<div class="card"><h4>Focaccia</h4><p>€2</p><button onclick="addToCart('Focaccia',2)">Aggiungi</button></div>
-
-<div class="card"><h4>Latte</h4><p>€1.4</p><button onclick="addToCart('Latte',1.4)">Aggiungi</button></div>
-<div class="card"><h4>Formaggio</h4><p>€3</p><button onclick="addToCart('Formaggio',3)">Aggiungi</button></div>
-<div class="card"><h4>Yogurt</h4><p>€0.8</p><button onclick="addToCart('Yogurt',0.8)">Aggiungi</button></div>
-
-<div class="card"><h4>Prosciutto</h4><p>€3.5</p><button onclick="addToCart('Prosciutto',3.5)">Aggiungi</button></div>
-<div class="card"><h4>Salame</h4><p>€3</p><button onclick="addToCart('Salame',3)">Aggiungi</button></div>
-
-<div class="card"><h4>Acqua</h4><p>€0.5</p><button onclick="addToCart('Acqua',0.5)">Aggiungi</button></div>
-<div class="card"><h4>Coca Cola</h4><p>€1.5</p><button onclick="addToCart('Coca Cola',1.5)">Aggiungi</button></div>
-<div class="card"><h4>Succo</h4><p>€1.2</p><button onclick="addToCart('Succo',1.2)">Aggiungi</button></div>
-
-<div class="card"><h4>Pasta</h4><p>€1</p><button onclick="addToCart('Pasta',1)">Aggiungi</button></div>
-<div class="card"><h4>Riso</h4><p>€1.5</p><button onclick="addToCart('Riso',1.5)">Aggiungi</button></div>
-<div class="card"><h4>Olio</h4><p>€5</p><button onclick="addToCart('Olio',5)">Aggiungi</button></div>
-<div class="card"><h4>Passata</h4><p>€1.2</p><button onclick="addToCart('Passata',1.2)">Aggiungi</button></div>
-
-</div>
+<div class="grid" id="products"></div>
 </section>
 
-<!-- CARRELLO -->
 <section id="carrello">
 <h2>Carrello</h2>
 
@@ -232,23 +256,19 @@ nav ul.active{display:flex;}
 <h3>Totale: €<span id="totale">0</span></h3>
 <button onclick="checkout()">Ordina su WhatsApp</button>
 </div>
-
 </section>
 
-<!-- CONTATTI -->
 <section id="contatti">
 <h2>Contatti</h2>
-
 <p>Orari: Lun-Sab 7:30 - 19:30</p>
 <p>Email: laspesadaisa@gmail.com</p>
-<p>Telefono: 0123 456789</p>
-<p>Indirizzo: Via della Tesa 70, Viadana Bresciana</p>
+<p>Telefono: 333 247 2741</p>
+<p>Indirizzo: Via della Tesa 70, Viadana</p>
 
 <div class="mappa">
-<iframe src="https://www.google.com/maps?q=Via+della+Tesa+70,+Viadana+Bresciana&output=embed"
+<iframe src="https://www.google.com/maps?q=Via+della+Tesa+70&output=embed"
 width="100%" height="300" style="border:0;" loading="lazy"></iframe>
 </div>
-
 </section>
 
 <footer style="text-align:center;padding:20px;background:white;">
@@ -264,27 +284,75 @@ document.querySelector(".menu-toggle").onclick=()=>{
 document.querySelector("nav ul").classList.toggle("active");
 };
 
+/* PRODOTTI */
+const prodotti = [
+["Mele",2],["Banane",1.8],["Arance",2.2],
+["Pane",1.5],["Latte",1.4],["Formaggio",3],
+["Pasta",1],["Riso",1.5],["Olio",5]
+];
+
+const container = document.getElementById("products");
+
+prodotti.forEach(p=>{
+container.innerHTML += `
+<div class="card">
+<h4>${p[0]}</h4>
+<p>€${p[1]}</p>
+<button onclick="addToCart('${p[0]}',${p[1]})">Aggiungi</button>
+</div>
+`;
+});
+
 /* CARRELLO */
-let cart=[];
-let totale=0;
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function addToCart(nome, prezzo){
-cart.push({nome,prezzo});
-totale+=prezzo;
+let item = cart.find(p => p.nome === nome);
+
+if(item){ item.qty++; }
+else{ cart.push({nome, prezzo, qty:1}); }
+
+saveCart();
+updateCart();
+}
+
+function removeItem(i){
+cart.splice(i,1);
+saveCart();
 updateCart();
 }
 
 function updateCart(){
 let lista=document.getElementById("listaCarrello");
 lista.innerHTML="";
+let totale=0;
 
-cart.forEach(item=>{
-let li=document.createElement("li");
-li.textContent=`${item.nome} - €${item.prezzo}`;
-lista.appendChild(li);
+cart.forEach((item,i)=>{
+totale += item.prezzo * item.qty;
+
+lista.innerHTML += `
+<li>
+${item.nome} x${item.qty} - €${(item.prezzo*item.qty).toFixed(2)}
+<button onclick="removeItem(${i})">❌</button>
+</li>
+`;
 });
 
 document.getElementById("totale").textContent=totale.toFixed(2);
+}
+
+function saveCart(){
+localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+/* SEARCH */
+function searchProduct(){
+let input=document.getElementById("search").value.toLowerCase();
+let cards=document.querySelectorAll(".card");
+
+cards.forEach(c=>{
+c.style.display = c.innerText.toLowerCase().includes(input) ? "block":"none";
+});
 }
 
 /* CHECKOUT */
@@ -295,20 +363,23 @@ alert("Carrello vuoto!");
 return;
 }
 
-let messaggio="Ordine:%0A";
+let msg="🛒 *Ordine La Spesa da Isa*%0A%0A";
+let totale=0;
 
 cart.forEach(item=>{
-messaggio+=`${item.nome} - €${item.prezzo}%0A`;
+totale += item.prezzo*item.qty;
+msg+=`${item.nome} x${item.qty} - €${(item.prezzo*item.qty).toFixed(2)}%0A`;
 });
 
-messaggio+=`Totale: €${totale.toFixed(2)}`;
+msg+=`%0ATotale: €${totale.toFixed(2)}`;
 
-window.open(`https://wa.me/393XXXXXXXXX?text=${messaggio}`);
+window.open(`https://wa.me/393XXXXXXXXX?text=${msg}`);
 }
+
+updateCart();
 
 </script>
 
 </body>
 </html>
-
 
