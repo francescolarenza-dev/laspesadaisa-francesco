@@ -86,7 +86,6 @@ transition:0.3s;
 }
 
 .card:hover{transform:translateY(-5px);}
-
 .card p{color:#1f7a63;font-weight:bold;}
 
 /* BUTTON */
@@ -157,6 +156,36 @@ text-decoration:none;
 font-size:20px;
 }
 
+/* COOKIE */
+.cookie-banner{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:white;
+padding:20px;
+box-shadow:0 -2px 10px rgba(0,0,0,0.1);
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:9999;
+flex-wrap:wrap;
+}
+
+.cookie-banner p{
+margin-bottom:10px;
+}
+
+.cookie-buttons{
+display:flex;
+gap:10px;
+}
+
+.cookie-buttons .secondary{
+background:#ccc;
+color:#000;
+}
+
 /* MOBILE */
 @media(max-width:768px){
 .menu-toggle{display:block;}
@@ -175,7 +204,6 @@ border-radius:10px;
 nav ul.active{display:flex;}
 
 .card{width:140px;}
-
 .logo img{height:40px;}
 }
 </style>
@@ -185,7 +213,7 @@ nav ul.active{display:flex;}
 
 <header>
 <div class="logo">
-<img src="https://scontent-fco2-1.xx.fbcdn.net/v/t1.6435-9/136112763_104227068297134_3438713755018764637_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=VjNkcR1OIjoQ7kNvwGhIlp7&_nc_oc=AdqUc46mHOx_8rPEEm_ts8FwdMsKxGJuLZiavx_A1AzLz65UwLbveZqgthdbevLJkkE&_nc_zt=23&_nc_ht=scontent-fco2-1.xx&_nc_gid=iFnW7B2qKK3XcTtdwn9KnA&_nc_ss=7a389&oh=00_Af2RxYSKuSddffjuIgT5keMz24kgWSscEz80lkok6mEYbA&oe=69F469B1" alt="Logo">
+<img src="https://scontent-fco2-1.xx.fbcdn.net/v/t1.6435-9/136112763_104227068297134_3438713755018764637_n.jpg" alt="Logo">
 <span>La Spesa da Isa</span>
 </div>
 
@@ -276,6 +304,19 @@ width="100%" height="300" style="border:0;" loading="lazy"></iframe>
 </footer>
 
 <a href="https://wa.me/393XXXXXXXXX" class="whatsapp">💬</a>
+
+<!-- COOKIE -->
+<div id="cookieBanner" class="cookie-banner">
+<p>
+Questo sito utilizza cookie per migliorare la tua esperienza.
+<a href="#">Privacy Policy</a>
+</p>
+
+<div class="cookie-buttons">
+<button onclick="closeCookies()">Accetta</button>
+<button class="secondary" onclick="closeCookies()">Rifiuta</button>
+</div>
+</div>
 
 <script>
 
@@ -374,6 +415,11 @@ msg+=`${item.nome} x${item.qty} - €${(item.prezzo*item.qty).toFixed(2)}%0A`;
 msg+=`%0ATotale: €${totale.toFixed(2)}`;
 
 window.open(`https://wa.me/393XXXXXXXXX?text=${msg}`);
+}
+
+/* COOKIE */
+function closeCookies(){
+document.getElementById("cookieBanner").style.display="none";
 }
 
 updateCart();
